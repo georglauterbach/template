@@ -8,6 +8,7 @@ _envops:
   lstrip_blocks: true # drop leading spaces & tabs before a block
 
 _exclude:
+  - .git
   - .github
   - LICENSE
   - README.md
