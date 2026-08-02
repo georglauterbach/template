@@ -1,0 +1,91 @@
+# -----------------------------------------------
+# ----  Copier Setting  -------------------------
+# -----------------------------------------------
+
+_envops:
+  trim_blocks: true   # drop the first newline after a block
+  lstrip_blocks: true # drop leading spaces & tabs before a block
+
+# -----------------------------------------------
+# ----  Project  --------------------------------
+# -----------------------------------------------
+
+project_name:
+  help: What is your project name?
+  type: str
+
+project_description:
+  help: Describe what the project is about
+  type: str
+
+project_license:
+  type: str
+  help: What license should the project have?
+  # ref: https://spdx.org/licenses
+  #      https://github.com/spdx/license-list-data/tree/main
+  choices:
+    none: ''
+    # ref: https://spdx.org/licenses/MIT.html
+    #      https://github.com/spdx/license-list-data/blob/main/text/MIT.txt
+    MIT: MIT
+    # ref: https://spdx.org/licenses/GPL-3.0-only.html
+    #      https://github.com/spdx/license-list-data/blob/main/text/GPL-3.0-only.txt
+    GPL-3.0-only: GPL-3.0-only
+    # ref: https://spdx.org/licenses/GPL-3.0-or-later.html
+    #      https://github.com/spdx/license-list-data/blob/main/text/GPL-3.0-or-later.txt
+    GPL-3.0-or-later: GPL-3.0-or-later
+  default: GPL-3.0-or-later
+
+project_copyright_year:
+    type: str
+    default: "{{ project_copyright_year | default('%Y' | strftime) }}"
+    when: false
+
+# -----------------------------------------------
+# ----  Languages  ------------------------------
+# -----------------------------------------------
+
+lang_shell_enabled:
+  type: bool
+  help: Will you have shell scripts in your project?
+  default: false
+lang_shell_type:
+  type: str
+  help: Which shell will the project target?
+  when: '{{ lang_shell_enabled }}'
+  choices:
+    sh: sh
+    bash: bash
+    zsh: zsh
+    fish: fish
+  default: bash
+
+lang_rust_enabled:
+  type: bool
+  help: Will this be a Rust project?
+  default: false
+
+# -----------------------------------------------
+# ----  Git  ------------------------------------
+# -----------------------------------------------
+
+git_ecosystem:
+  type: str
+  help: Which Git ecosystem will your project use?
+  choices:
+    none: ''
+    github: github
+  default: ''
+
+# -----------------------------------------------
+# ----  Dev Container  --------------------------
+# -----------------------------------------------
+
+dev_container_enabled:
+  type: bool
+  help: Should the project have a Development Container?
+  default: false
+
+dev_container_use_hermes:
+  type: bool
+  help: Would you like to use use hermes (https://github.com/georglauterbach/hermes) in the Development Container?

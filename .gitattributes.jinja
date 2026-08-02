@@ -1,0 +1,76 @@
+# -----------------------------------------------
+# ----  gitattributes  --------------------------
+# ----  https://git-scm.com/docs/gitattributes  -
+# -----------------------------------------------
+
+# For templates, see
+# https://github.com/alexkaratarakis/gitattributes
+
+# -----------------------------------------------
+# ----  General  --------------------------------
+# -----------------------------------------------
+
+* text=auto eol=lf
+
+.gitattributes !filter !diff export-ignore
+.gitignore     !filter !diff export-ignore
+.gitkeep       !filter !diff export-ignore
+
+# -----------------------------------------------
+# ----  IDEs  -----------------------------------
+# -----------------------------------------------
+
+.vscode/*.json linguist-language=JSON-with-Comments
+
+# -----------------------------------------------
+# ----  Languages  ------------------------------
+# -----------------------------------------------
+
+*.bash  text diff=bash
+*.c     text diff=cpp
+*.cc    text diff=cpp
+*.h     text diff=cpp
+*.hh    text diff=cpp
+*.md    text diff=markdown
+*.py    text diff=python
+*.rs    text diff=rust
+{% if lang_shell_enabled %}
+*.sh    text diff={{ lang_shell_type }}
+{% endif %}
+
+# -----------------------------------------------
+# ----  Other Formats  --------------------------
+# -----------------------------------------------
+
+*.lock  text
+*.json  text diff=json
+*.jsonc text diff=json
+*.toml  text diff=toml
+*.yml   text diff=yaml
+*.yaml  text diff=yaml
+
+# -----------------------------------------------
+# ----  Archives  -------------------------------
+# -----------------------------------------------
+
+*.7z    binary
+*.bz    binary
+*.bz2   binary
+*.gz    binary
+*.lz    binary
+*.tar   binary
+*.xz    binary
+*.zip   binary
+
+# -----------------------------------------------
+# ----  Graphics  -------------------------------
+# -----------------------------------------------
+
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.tif   binary
+*.tiff  binary
+*.ico   binary
+*.svg   text

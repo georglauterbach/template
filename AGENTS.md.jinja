@@ -1,0 +1,14 @@
+# {{project_name}} - Agent Guide
+
+{{ project_description }}
+
+## Repository Layout
+
+|Path|Purpose|
+|:-|:-|
+{% if dev_container_enabled %}
+|`.devcontainer/`|[Development Container](https://containers.dev/) with the complete environment|
+{% endif %}
+{% if ci == 'github' %}
+|`.github/`|GitHub-related content like CI/CD, issues, etc.|
+{% endif %}

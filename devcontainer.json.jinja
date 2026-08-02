@@ -1,0 +1,24 @@
+{
+  "name": "default",
+{% if lang_rust_enabled %}
+  "image": "docker.io/rust:1.97.1-slim-trixie",
+{% else %}
+  "image": "docker.io/ubuntu:24.04",
+{% endif %}
+  "features": {
+{% if dev_container_use_hermes %}
+    "ghcr.io/georglauterbach/dev-container-features/hermes:15.0.0": {},
+{% endif %}
+{% if lang_rust_enabled %}
+    "ghcr.io/georglauterbach/dev-container-features/lang-rust:0.5": {},
+{% endif %}
+{% if lang_shell_enabled %}
+    "ghcr.io/georglauterbach/dev-container-features/lang-sh:0.6": {}
+{% endif %}
+  },
+  // for compatibility with Podman
+  // ref: https://github.com/devcontainers/features/issues/1480
+  "runArgs": [
+    "--tmpfs=/tmp:rw,exec,nosuid,nodev,mode=1777"
+  ]
+}

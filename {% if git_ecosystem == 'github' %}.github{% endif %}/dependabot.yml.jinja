@@ -1,0 +1,48 @@
+---
+version: 2
+
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    cooldown:
+      default-days: 7
+    schedule:
+      interval: monthly
+    assignees: [ georglauterbach ]
+    labels:
+      - kind::update
+      - area::ci
+
+{% if lang_rust_enabled %}
+  - package-ecosystem: cargo
+    directory: code/
+    cooldown:
+      default-days: 7
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 1
+    assignees: [ georglauterbach ]
+    labels:
+      - kind::update
+      - area::dependencies
+    groups:
+      cargo-minor-and-patch:
+        patterns: ["*"]
+        update-types:
+          - minor
+          - patch
+{% endif %}
+
+{% if dev_container_enabled %}
+  - package-ecosystem: devcontainers
+    directory: /
+    cooldown:
+      default-days: 7
+    schedule:
+      interval: monthly
+    assignees: [ georglauterbach ]
+    labels:
+      - kind::update
+      - area::infrastructure
+
+{% endif %}

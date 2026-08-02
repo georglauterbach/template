@@ -1,0 +1,35 @@
+[package]
+name = "{{ project_name }}"
+version = "0.0.0"
+edition = "2024"
+description = "{{ project_description }}"
+readme = "README.md"
+repository = ""
+license = "{{ project_license }}"
+publish = false
+
+[dependencies]
+
+[lints]
+
+# ref: https://doc.rust-lang.org/stable/clippy/index.html
+[lints.clippy]
+all = "deny" # enable all lints (correctness, suspicious, style, complexity, perf)
+missing_docs_in_private_items = { level = "deny", priority = 1 }
+multiple_crate_versions = { level = "allow", priority = 1 }
+
+cargo = { level = "deny", priority = -1 } # lints for Cargo.toml
+cargo_common_metadata = "allow"
+
+nursery = { level = "deny", priority = -1 } # strict lints with occasional false positives
+pedantic = { level = "deny", priority = -1 } # new lints under development
+
+[lints.rust]
+missing_debug_implementations = "deny"
+missing_docs = "deny"
+
+# ref: https://doc.rust-lang.org/rustdoc/index.html
+[lints.rustdoc]
+all = { level = "deny", priority = 1 }
+broken_intra_doc_links = "deny"
+private_intra_doc_links = "allow"
