@@ -6,6 +6,11 @@ _envops:
   trim_blocks: true   # drop the first newline after a block
   lstrip_blocks: true # drop leading spaces & tabs before a block
 
+_exclude:
+  - .github
+  - LICENSE
+  - README.md
+
 # -----------------------------------------------
 # ----  Project  --------------------------------
 # -----------------------------------------------
