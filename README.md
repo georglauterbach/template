@@ -9,6 +9,9 @@ uv tool install copier
 # use the template
 copier copy gh:georglauterbach/template.git '<PROJECT NAME>'
 
+# check for an update
+copier check-update
+
 # update a project
-copier update gh:georglauterbach/template.git
+copier update
 ```
