@@ -29,5 +29,3 @@ jobs:
 
       - name: Run Linter
         uses: georglauterbach/linter@v0.4.2
-        with:
-          zizmor_config: .github/linter/zizmor.yaml
