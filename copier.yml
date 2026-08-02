@@ -1,3 +1,4 @@
+---
 # -----------------------------------------------
 # ----  Copier Setting  -------------------------
 # -----------------------------------------------
@@ -42,9 +43,9 @@ project_license:
   default: GPL-3.0-or-later
 
 project_copyright_year:
-    type: str
-    default: "{{ project_copyright_year | default('%Y' | strftime) }}"
-    when: false
+  type: str
+  default: "{{ project_copyright_year | default('%Y' | strftime) }}"
+  when: false
 
 # -----------------------------------------------
 # ----  Languages  ------------------------------
