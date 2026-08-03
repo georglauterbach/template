@@ -3,6 +3,9 @@
 This is a [Copier](https://copier.readthedocs.io/en/stable) template for my projects. To use the template, run the following commands:
 
 ```bash
+# install uv
+# https://docs.astral.sh/uv/getting-started/installation
+
 # install copier
 uv tool install copier
 

@@ -104,7 +104,7 @@ code_library_enabled:
 # -----------------------------------------------
 
 git_ecosystem:
-  help: Which Git ecosystem will your project use?
+  help: Which git ecosystem will your project use?
   type: str
   choices:
     none: ''
@@ -112,7 +112,7 @@ git_ecosystem:
   default: ''
 
 git_ecosystem_username:
-  help: What is your username?
+  help: What is git ecosystem username?
   type: str
   when: "{{ git_ecosystem != '' }}"
 
