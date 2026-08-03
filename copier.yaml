@@ -72,6 +72,7 @@ lang_shell_type:
   type: str
   when: '{{ lang_shell_enabled }}'
   choices:
+    mixed: mixed
     sh: sh
     bash: bash
     zsh: zsh

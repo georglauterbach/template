@@ -32,7 +32,9 @@ tab_width                = 4
 {% if lang_shell_enabled %}
 
 [*.sh]
+{% if lang_shell_type != 'mixed' %}
 shell_variant            = {{ lang_shell_type }}
+{% endif %}
 binary_next_line         = true
 switch_case_indent       = true
 space_redirects          = false
