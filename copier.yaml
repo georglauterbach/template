@@ -3,16 +3,11 @@
 # ----  Copier Setting  -------------------------
 # -----------------------------------------------
 
+_subdirectory: template
+
 _envops:
   trim_blocks: true   # drop the first newline after a block
   lstrip_blocks: true # drop leading spaces & tabs before a block
-
-_exclude:
-  - copier.yaml
-  - .git
-  - .github
-  - LICENSE
-  - README.md
 
 # -----------------------------------------------
 # ----  Project  --------------------------------
@@ -44,13 +39,18 @@ project_license:
     GPL-3.0-or-later: GPL-3.0-or-later
   default: GPL-3.0-or-later
 
+project_copyright_holder:
+  help: Who holds the copyright?
+  type: str
+  when: "{{ project_license != '' }}"
+
 project_copyright_year:
-  default: "{{ project_copyright_year | default('%Y' | strftime) }}"
   type: str
   when: false
+  default: "{{ project_copyright_year | default('%Y' | strftime) }}"
 
 project_changelog_enabled:
-  help: You want to have a changelog?
+  help: Do you want to have a changelog?
   type: bool
   default: true
 
@@ -84,6 +84,22 @@ lang_rust_enabled:
   default: false
 
 # -----------------------------------------------
+# ----  Code  -----------------------------------
+# -----------------------------------------------
+
+code_binary_enabled:
+  help: Will the project contain a binary?
+  type: bool
+  default: true
+  when: "{{ lang_python_enabled or lang_rust_enabled }}"
+
+code_library_enabled:
+  help: Will the project contain a library?
+  type: bool
+  default: true
+  when: "{{ lang_python_enabled or lang_rust_enabled }}"
+
+# -----------------------------------------------
 # ----  Git  ------------------------------------
 # -----------------------------------------------
 
@@ -94,6 +110,11 @@ git_ecosystem:
     none: ''
     github: github
   default: ''
+
+git_ecosystem_username:
+  help: What is your username?
+  type: str
+  when: "{{ git_ecosystem != '' }}"
 
 # -----------------------------------------------
 # ----  Dev Container  --------------------------
