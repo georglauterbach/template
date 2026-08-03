@@ -12,8 +12,8 @@ updates:
     labels:
       - kind::update
       - area::ci
-
 {% if lang_rust_enabled %}
+
   - package-ecosystem: cargo
     directory: code/
     cooldown:
@@ -32,8 +32,8 @@ updates:
           - minor
           - patch
 {% endif %}
-
 {% if dev_container_enabled %}
+
   - package-ecosystem: devcontainers
     directory: /
     cooldown:
