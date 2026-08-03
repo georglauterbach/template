@@ -113,7 +113,7 @@ git_ecosystem:
   default: ''
 
 git_ecosystem_username:
-  help: What is git ecosystem username?
+  help: What is your git ecosystem username?
   type: str
   when: "{{ git_ecosystem != '' }}"
 
