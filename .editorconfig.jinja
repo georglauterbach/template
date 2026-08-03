@@ -18,9 +18,17 @@ indent_size              = 2
 tab_width                = 2
 trim_trailing_whitespace = true
 
-[*.{rs,py}]
+{% if lang_rust_enabled %}
+[*.rs]
 indent_size              = 4
 tab_width                = 4
+{% endif %}
+
+{% if lang_python_enabled %}
+[*.py]
+indent_size              = 4
+tab_width                = 4
+{% endif %}
 
 {% if lang_shell_enabled %}
 [*.sh]

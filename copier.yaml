@@ -27,12 +27,12 @@ project_description:
   type: str
 
 project_license:
-  type: str
   help: What license should the project have?
+  type: str
   # ref: https://spdx.org/licenses
   #      https://github.com/spdx/license-list-data/tree/main
   choices:
-    none: ''
+    None: ''
     # ref: https://spdx.org/licenses/MIT.html
     #      https://github.com/spdx/license-list-data/blob/main/text/MIT.txt
     MIT: MIT
@@ -45,21 +45,31 @@ project_license:
   default: GPL-3.0-or-later
 
 project_copyright_year:
-  type: str
   default: "{{ project_copyright_year | default('%Y' | strftime) }}"
+  type: str
   when: false
+
+project_changelog_enabled:
+  help: You want to have a changelog?
+  type: bool
+  default: true
 
 # -----------------------------------------------
 # ----  Languages  ------------------------------
 # -----------------------------------------------
 
-lang_shell_enabled:
+lang_python_enabled:
+  help: Will the project contain Python?
   type: bool
-  help: Will you have shell scripts in your project?
+
+lang_shell_enabled:
+  help: Will the project contain shell (scripts)?
+  type: bool
   default: false
+
 lang_shell_type:
-  type: str
   help: Which shell will the project target?
+  type: str
   when: '{{ lang_shell_enabled }}'
   choices:
     sh: sh
@@ -69,8 +79,8 @@ lang_shell_type:
   default: bash
 
 lang_rust_enabled:
+  help: Will the project contain Rust?
   type: bool
-  help: Will this be a Rust project?
   default: false
 
 # -----------------------------------------------
@@ -78,8 +88,8 @@ lang_rust_enabled:
 # -----------------------------------------------
 
 git_ecosystem:
-  type: str
   help: Which Git ecosystem will your project use?
+  type: str
   choices:
     none: ''
     github: github
@@ -90,10 +100,11 @@ git_ecosystem:
 # -----------------------------------------------
 
 dev_container_enabled:
-  type: bool
   help: Should the project have a Development Container?
+  type: bool
   default: false
 
 dev_container_use_hermes:
+  help: Would you like to use use hermes (https://github.com/georglauterbach/hermes) in the Development Container (as a Development Container Feature)?
   type: bool
-  help: Would you like to use use hermes (https://github.com/georglauterbach/hermes) in the Development Container?
+  when: '{{ dev_container_enabled }}'
