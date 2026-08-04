@@ -37,3 +37,9 @@ space_redirects          = false
 keep_padding             = false
 function_next_line       = true
 {% endif %}
+{% if lang_container_enabled != 'mixed' %}
+
+[{Container,Docker}file]
+indent_size              = 4
+tab_width                = 4
+{% endif %}

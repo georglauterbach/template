@@ -84,6 +84,11 @@ lang_rust_enabled:
   type: bool
   default: false
 
+lang_container_enabled:
+  help: Will there be Containerfiles in this project?
+  type: bool
+  default: false
+
 # -----------------------------------------------
 # ----  Code  -----------------------------------
 # -----------------------------------------------

@@ -32,6 +32,19 @@ updates:
           - minor
           - patch
 {% endif %}
+{% if lang_container_enabled %}
+
+  - package-ecosystem: docker
+    directory: /
+    cooldown:
+      default-days: 7
+    schedule:
+      interval: weekly
+    assignees: [ {{ git_ecosystem_username }} ]
+    labels:
+      - kind::update
+      - area::code
+{% endif %}
 {% if dev_container_enabled %}
 
   - package-ecosystem: devcontainers
