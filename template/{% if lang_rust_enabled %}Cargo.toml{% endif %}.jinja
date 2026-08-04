@@ -14,14 +14,14 @@ publish = false
 
 # ref: https://doc.rust-lang.org/stable/clippy/index.html
 [lints.clippy]
-# Basic lints
-all = "deny" # enable all lints (correctness, suspicious, style, complexity, perf)
+# Enable all lints (correctness, suspicious, style, complexity, perf)
+all = { level = "deny", priority = -1 }
 missing_docs_in_private_items = { level = "deny", priority = 1 }
 multiple_crate_versions = { level = "allow", priority = 1 }
 
 # Lints for Cargo.toml
 cargo = { level = "deny", priority = -1 }
-cargo_common_metadata = "allow"
+cargo_common_metadata = { level = "allow", priority = 1 }
 
 # Additional lints
 nursery = { level = "deny", priority = -1 } # strict lints with occasional false positives
