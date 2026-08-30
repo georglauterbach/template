@@ -9,9 +9,7 @@ dictionaryDefinitions: []
 dictionaries:
   - en_US
   - softwareTerms
-{% if lang_shell_enabled %}
   - bash
-{% endif %}
 
 words:
   - allowlist
@@ -56,57 +54,21 @@ ignoreWords:
   # Acronyms
   - PKCS11
 
-  # Miscellaneous
-  - acpi
-  - agentic
-  - awww
-  - bindsym
-  - btop
-  - buildx
-  - bwrap
+  # Tooling
   - containerfile
-  - coolors
-  - gamemode
-  - everforest
-  - evergruv
-  - flyline
-  - gitui
-  - gsettings
-  - herdr
+  - Containerfiles
+  - endfor
+  - envops
   - justfile
-  - libbash
-  - libflyline
-  - lightctl
+  - lstrip
   - nodev
   - nosuid
-  - patchelf
-  - pipewire
-  - powerprofilesctl
-  - ptyxis
-  - reflog
-  - rofi
-  - rtkit
-  - satty
-  - scdoc
+  - pathlib
   - shellcheck
   - shfmt
-  - shikane
-  - shikanectl
-  - swayfx
-  - swayidle
-  - swayimg
-  - swaylock
-  - swaymsg
-  - swaync
-  - swaynotificationcenter
+  - splitlines
+  - startswith
+  - strftime
   - tmpfs
-  - waybar
-  - wdisplays
-  - wireplumber
-  - wleave
-  - wlsunset
-  - wpctl
-  - xwayland
-  - yaru
-  - yazi
+  - trixie
   - zizmor

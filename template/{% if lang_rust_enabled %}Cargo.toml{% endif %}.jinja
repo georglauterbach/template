@@ -4,8 +4,12 @@ version = "0.0.0"
 edition = "2024"
 description = "{{ project_description }}"
 readme = "README.md"
-repository = ""
+{% if git_ecosystem == 'github' %}
+repository = "https://github.com/{{ git_ecosystem_username }}/{{ project_name }}"
+{% endif %}
+{% if project_license %}
 license = "{{ project_license }}"
+{% endif %}
 publish = false
 
 [dependencies]

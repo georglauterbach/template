@@ -1,4 +1,4 @@
-# {{project_name}} - Agent Guide
+# {{ project_name }} - Agent Guide
 
 {{ project_description }}
 
@@ -6,9 +6,20 @@
 
 |Path|Purpose|
 |:-|:-|
+|`README.md`|Project description|
+|`cspell.config.yaml`|Spell-check configuration|
+{% if project_changelog_enabled %}
+|`CHANGELOG.md`|Keep a Changelog history|
+{% endif %}
+{% if git_ecosystem == 'github' %}
+|`.github/`|GitHub-related content like CI/CD, issues, etc.|
+{% endif %}
 {% if dev_container_enabled %}
 |`.devcontainer/`|[Development Container](https://containers.dev/) with the complete environment|
 {% endif %}
-{% if ci == 'github' %}
-|`.github/`|GitHub-related content like CI/CD, issues, etc.|
+{% if lang_rust_enabled %}
+|`Cargo.toml`|Rust package manifest|
+{% if code_binary_enabled or code_library_enabled %}
+|`src/`|Rust sources|
+{% endif %}
 {% endif %}

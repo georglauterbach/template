@@ -35,13 +35,7 @@
 *.mdc   text diff=markdown
 *.py    text diff=python
 *.rs    text diff=rust
-{% if lang_shell_enabled %}
-{% if lang_shell_type == 'bash' %}
 *.sh    text diff=bash
-{% else %}
-*.sh    text
-{% endif %}
-{% endif %}
 
 # -----------------------------------------------
 # ----  Other Formats  --------------------------

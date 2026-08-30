@@ -8,6 +8,7 @@ _subdirectory: template
 _envops:
   trim_blocks: true   # drop the first newline after a block
   lstrip_blocks: true # drop leading spaces & tabs before a block
+  undefined: jinja2.StrictUndefined
 
 # -----------------------------------------------
 # ----  Project  --------------------------------
@@ -61,6 +62,7 @@ project_changelog_enabled:
 lang_python_enabled:
   help: Will the project contain Python?
   type: bool
+  default: false
 
 lang_shell_enabled:
   help: Will the project contain shell (scripts)?
@@ -73,6 +75,7 @@ lang_shell_type:
   when: '{{ lang_shell_enabled }}'
   choices:
     mixed: mixed
+    ash: ash
     sh: sh
     bash: bash
     zsh: zsh
@@ -97,13 +100,14 @@ code_binary_enabled:
   help: Will the project contain a binary?
   type: bool
   default: true
-  when: "{{ lang_python_enabled or lang_rust_enabled }}"
+  when: "{{ lang_rust_enabled }}"
 
 code_library_enabled:
   help: Will the project contain a library?
   type: bool
   default: true
-  when: "{{ lang_python_enabled or lang_rust_enabled }}"
+  when: "{{ lang_rust_enabled }}"
+  validator: "{% if not code_binary_enabled and not code_library_enabled %}A project must contain at least a binary or a library{% endif %}"
 
 # -----------------------------------------------
 # ----  Git  ------------------------------------

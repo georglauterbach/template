@@ -1,3 +1,13 @@
+{% set ns = namespace(features=[]) %}
+{% if dev_container_use_hermes %}
+{% set ns.features = ns.features + ['ghcr.io/georglauterbach/dev-container-features/hermes:15.0.0'] %}
+{% endif %}
+{% if lang_rust_enabled %}
+{% set ns.features = ns.features + ['ghcr.io/georglauterbach/dev-container-features/lang-rust:0.5'] %}
+{% endif %}
+{% if lang_shell_enabled %}
+{% set ns.features = ns.features + ['ghcr.io/georglauterbach/dev-container-features/lang-sh:0.6'] %}
+{% endif %}
 {
   "name": "default",
 {% if lang_rust_enabled %}
@@ -6,15 +16,9 @@
   "image": "docker.io/ubuntu:24.04",
 {% endif %}
   "features": {
-{% if dev_container_use_hermes %}
-    "ghcr.io/georglauterbach/dev-container-features/hermes:15.0.0": {},
-{% endif %}
-{% if lang_rust_enabled %}
-    "ghcr.io/georglauterbach/dev-container-features/lang-rust:0.5": {},
-{% endif %}
-{% if lang_shell_enabled %}
-    "ghcr.io/georglauterbach/dev-container-features/lang-sh:0.6": {}
-{% endif %}
+{% for feature in ns.features %}
+    "{{ feature }}": {}{{ "," if not loop.last }}
+{% endfor %}
   },
   // for compatibility with Podman
   // ref: https://github.com/devcontainers/features/issues/1480

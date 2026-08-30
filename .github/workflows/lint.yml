@@ -28,4 +28,20 @@ jobs:
           persist-credentials: false
 
       - name: Run Linter
-        uses: georglauterbach/linter@v0.4.2
+        uses: georglauterbach/linter@v0.4.4
+
+  render:
+    name: Render
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Install Copier
+        run: pipx install copier
+
+      - name: Check renders
+        run: .github/scripts/check_render.sh
