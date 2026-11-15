@@ -20,9 +20,9 @@
     "{{ feature }}": {}{{ "," if not loop.last }}
 {% endfor %}
   },
-  // for compatibility with Podman
-  // ref: https://github.com/devcontainers/features/issues/1480
   "runArgs": [
+    // for compatibility with Podman
+    // > https://github.com/devcontainers/features/issues/1480
     "--tmpfs=/tmp:rw,exec,nosuid,nodev,mode=1777"
   ]
 }

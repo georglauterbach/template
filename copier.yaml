@@ -25,17 +25,17 @@ project_description:
 project_license:
   help: What license should the project have?
   type: str
-  # ref: https://spdx.org/licenses
+  # > https://spdx.org/licenses
   #      https://github.com/spdx/license-list-data/tree/main
   choices:
     None: ''
-    # ref: https://spdx.org/licenses/MIT.html
+    # > https://spdx.org/licenses/MIT.html
     #      https://github.com/spdx/license-list-data/blob/main/text/MIT.txt
     MIT: MIT
-    # ref: https://spdx.org/licenses/GPL-3.0-only.html
+    # > https://spdx.org/licenses/GPL-3.0-only.html
     #      https://github.com/spdx/license-list-data/blob/main/text/GPL-3.0-only.txt
     GPL-3.0-only: GPL-3.0-only
-    # ref: https://spdx.org/licenses/GPL-3.0-or-later.html
+    # > https://spdx.org/licenses/GPL-3.0-or-later.html
     #      https://github.com/spdx/license-list-data/blob/main/text/GPL-3.0-or-later.txt
     GPL-3.0-or-later: GPL-3.0-or-later
   default: GPL-3.0-or-later
