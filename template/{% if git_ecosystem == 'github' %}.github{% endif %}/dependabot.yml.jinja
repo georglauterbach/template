@@ -9,9 +9,7 @@ updates:
     schedule:
       interval: monthly
     assignees: [ {{ git_ecosystem_username }} ]
-    labels:
-      - kind::update
-      - area::ci
+    labels: [ area::ci ]
 {% if lang_rust_enabled %}
 
   - package-ecosystem: cargo
@@ -22,9 +20,7 @@ updates:
       interval: monthly
     open-pull-requests-limit: 1
     assignees: [ {{ git_ecosystem_username }} ]
-    labels:
-      - kind::update
-      - area::dependencies
+    labels: [ area::dependencies ]
     groups:
       cargo-minor-and-patch:
         patterns: ["*"]
@@ -41,9 +37,7 @@ updates:
     schedule:
       interval: weekly
     assignees: [ {{ git_ecosystem_username }} ]
-    labels:
-      - kind::update
-      - area::code
+    labels: [ area::code ]
 {% endif %}
 {% if dev_container_enabled %}
 
@@ -54,7 +48,5 @@ updates:
     schedule:
       interval: monthly
     assignees: [ {{ git_ecosystem_username }} ]
-    labels:
-      - kind::update
-      - area::infrastructure
+    labels: [ area::infrastructure ]
 {% endif %}
